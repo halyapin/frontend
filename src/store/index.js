@@ -177,7 +177,7 @@ export default new Vuex.Store({
     async update ({ commit, state }, profile) {
       const id = state.user.user_id
       const token = state.token
-      const res = await axios.patch(`http://localhost:8000/users/update/${id}/`, profile, {
+      const res = await axios.patch(`/users/update/${id}/`, profile, {
         headers: {
           Authorization: `Token ${token}`
         }
@@ -196,7 +196,7 @@ export default new Vuex.Store({
     },
     async checkout ({ commit, state, getters }) {
       try {
-        const res = await axios.post('http://localhost:8000/orders/order/', {
+        const res = await axios.post('/orders/order/', {
           order: {
             cart: state.cart,
             rating: state.stars,
